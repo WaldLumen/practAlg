@@ -1,8 +1,12 @@
 use std::io;
+use std::io::Write;
 
-pub fn get_formula() -> u32 {
+pub fn get_formula(message_text: &str) -> u32 {
     loop {
-        println!("Please input formula what u want use:\n1:Actions on vector\n2:Determine the sum of first two digits.\n3:Chess ");
+        println!("{}", {message_text});
+        print!("Please input formula what u want use: ");
+        io::stdout().flush().unwrap();
+
         let mut formula = String::new();
 
         io::stdin()
@@ -21,19 +25,20 @@ pub fn get_formula() -> u32 {
 ///
 /// # Arguments
 ///
-/// * `input_text`:
-/// * `_max`:
+/// * `input_text`: string
+/// * `_max`(maximum possible number value): int
 ///
 /// returns: u32
 ///
 /// # Examples
 ///
 /// ```
-///
+/// let k: u32 = read_input_u32("Введите k:", 3000);
 /// ```
 pub fn read_input_u32(input_text: &str, _max: u32) -> u32 {
     loop {
-        println!("{}:", input_text);
+        print!("{}: ", input_text);
+        io::stdout().flush().unwrap();
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("Не удалось прочитать строку");
         match input.trim().parse() {
