@@ -16,7 +16,7 @@ mod chess_tools;
 
 mod pract7;
 mod pract9;
-
+mod pract10;
 
 
 fn main() {
@@ -49,6 +49,10 @@ fn main() {
       } else if exercise == 5 {
          pract9::math::ex3_5()
       }
+   }
+   else if formula == 6 {
+      pract10::mnogoottenkovvishmata::maklorens_row_for(1.0, 5);
+      pract10::mnogoottenkovvishmata::maklorens_row_while(1.0, 0.01)
    }
 }
 
